@@ -1,0 +1,21 @@
+<h1>Products List</h1>
+<table>
+  <thead>
+    <%= link_to 'Add new products', new_product_path %>
+    <tr>
+      <td>Name</td>
+      <td>Category</td>
+      <td>Price</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><% @products.each do |product| %>
+      <td><%= product.name %></td>
+      <td><%= product.category %></td>
+      <td><%= product.price %></td>
+      <td><%= link_to '編輯', edit_product_path(product) %></td>
+      <td><%= link_to '刪除', product_path(product), method: 'delete' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
